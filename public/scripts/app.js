@@ -1,3 +1,5 @@
+//Test
+
 console.log("Client side js is running");
 
 const weatherForm = document.querySelector("form");
