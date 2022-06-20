@@ -11,11 +11,12 @@ const forecast = ({ lat, long }, callback) => {
     } else if (data.error) {
       callback(data.error.info, null);
     } else {
-      const { temperature, weather_descriptions } = data.current;
+      const { temperature, weather_descriptions, humidity, observation_time } =
+        data.current;
       const { name, country, region } = data.location;
       callback(null, {
-        forecast: `${temperature} degrees and ${weather_descriptions[0]}`,
-        location: `${name}, ${region}, ${country}`,
+        forecast: `${temperature} degrees and ${weather_descriptions[0]} with a humidity of ${humidity}%`,
+        location: `${name}, ${region}, ${country}. Local time is ${observation_time}`,
       });
     }
   });
